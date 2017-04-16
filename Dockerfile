@@ -46,4 +46,10 @@ RUN apt-get install -y   amavisd-new \
 
 RUN apt-get install -y   nginx
 
+# Start
+COPY ./start-mailserver.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/*
+
+CMD /usr/local/bin/start-mailserver.sh
+
 WORKDIR /tmp
