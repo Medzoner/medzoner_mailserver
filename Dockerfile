@@ -42,6 +42,6 @@ RUN apt-get install -y   amavisd-new \
                          sasl2-bin \
                          spamassassin \
                          postgrey \
-                         unzip \
+                         unzip
 
 WORKDIR /tmp

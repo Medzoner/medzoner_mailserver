@@ -1,3 +1,3 @@
-[![Docker Pulls](https://img.shields.io/docker/build/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/medzoner/medzoner_capistrano/)
+[![Docker Pulls](https://img.shields.io/docker/build/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/medzoner/medzoner_mailserver/)
 
-Docker capistrano 3.4
+Docker mailserver 3.4
