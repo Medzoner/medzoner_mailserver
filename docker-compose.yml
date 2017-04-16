@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+    #mailserver
+    mailserver:
+        image: "medzoner/mailserver:latest"
+        container_name: "mailserver"
+        restart: "always"
+        ports:
+            - 25:25
+            - 8080:80
+            - 8443:443
+            - 110:110
+            - 143:143
+            - 465:465
+            - 587:587
+            - 993:993
+            - 995:995
