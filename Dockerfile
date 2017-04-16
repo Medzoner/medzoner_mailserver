@@ -44,4 +44,6 @@ RUN apt-get install -y   amavisd-new \
                          postgrey \
                          unzip
 
+RUN apt-get install -y   nginx
+
 WORKDIR /tmp
