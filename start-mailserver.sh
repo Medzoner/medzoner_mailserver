@@ -11,8 +11,9 @@ service opendkim start
 service opendmarc start
 service postfix start
 
-dovecot -c /etc/dovecot/dovecot.conf
-dovecot reload
+service dovecot start
+/usr/sbin/dovecot -c /etc/dovecot/dovecot.conf
+/usr/sbin/dovecot reload
 
 freshclam
 service fetchmail start
