@@ -52,6 +52,6 @@ RUN apt-get update -q --fix-missing && \
 COPY ./start-mailserver.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/*
 
-CMD /usr/local/bin/start-mailserver.sh
+#CMD /usr/local/bin/start-mailserver.sh
 
 WORKDIR /tmp
