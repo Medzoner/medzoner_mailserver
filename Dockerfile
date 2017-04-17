@@ -1,8 +1,12 @@
 FROM debian:8.7
 MAINTAINER medzoner <medzoner@medzoner.com>
 
-RUN apt-get update
-RUN apt-get install -y   amavisd-new \
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update -q --fix-missing && \
+  apt-get -y upgrade && \
+  apt-get -y install --no-install-recommends \
+                         amavisd-new \
                          arj \
                          bzip2 \
                          clamav \
