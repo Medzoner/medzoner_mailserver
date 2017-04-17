@@ -9,6 +9,7 @@ RUN apt-get update -q --fix-missing && \
                          amavisd-new \
                          arj \
                          bzip2 \
+                         bash \
                          clamav \
                          clamav-daemon \
                          curl \
@@ -62,3 +63,5 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Set up the command arguments.
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+CMD /bin/sh
