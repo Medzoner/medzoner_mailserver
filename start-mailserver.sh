@@ -14,6 +14,7 @@ cron
 /usr/sbin/dovecot -c /etc/dovecot/dovecot.conf
 /usr/sbin/dovecot reload
 
+freshclam
 /etc/init.d/fetchmail start
 /etc/init.d/clamav-daemon start
 /etc/init.d/postgrey start
