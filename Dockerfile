@@ -48,10 +48,17 @@ RUN apt-get update -q --fix-missing && \
                          postgrey \
                          unzip
 
+WORKDIR /tmp
+
 # Start
-COPY ./start-mailserver.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/*
+#COPY ./start-mailserver.sh /usr/local/bin/
+#RUN chmod +x /usr/local/bin/*
 
 #CMD /usr/local/bin/start-mailserver.sh
 
-WORKDIR /tmp
+#entry point
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Set up the command arguments.
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
