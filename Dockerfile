@@ -1,18 +1,39 @@
-FROM debian:8.7
-MAINTAINER medzoner <medzoner@medzoner.com>
+FROM nginx:1.11
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -q --fix-missing && \
-  apt-get -y upgrade && \
   apt-get -y install --no-install-recommends \
-                         amavisd-new \
                          arj \
                          bzip2 \
                          bash \
-                         clamav \
-                         clamav-daemon \
                          curl \
+                         ed \
+                         file \
+                         gamin \
+                         gzip \
+                         iptables \
+                         libmail-spf-perl \
+                         libnet-dns-perl \
+                         libsasl2-modules \
+                         openssl \
+                         postgrey \
+                         p7zip \
+                         pyzor \
+                         razor \
+                         rsyslog \
+                         sasl2-bin \
+                         spamassassin \
+                         unzip
+
+RUN apt-get -y install --no-install-recommends \
+                         amavisd-new
+
+RUN apt-get -y install --no-install-recommends \
+                         clamav \
+                         clamav-daemon
+
+RUN apt-get -y install --no-install-recommends \
                          dovecot-common \
                          dovecot-core \
                          dovecot-imapd \
@@ -21,47 +42,27 @@ RUN apt-get update -q --fix-missing && \
                          dovecot-managesieved \
                          dovecot-mysql\
                          dovecot-pop3d \
-                         dovecot-sieve \
-                         ed \
+                         dovecot-sieve
+
+RUN apt-get -y install --no-install-recommends \
                          fail2ban \
-                         fetchmail \
-                         file \
-                         gamin \
-                         gzip \
-                         iptables \
-                         libmail-spf-perl \
-                         libnet-dns-perl \
-                         libsasl2-modules \
+                         fetchmail
+
+RUN apt-get -y install --no-install-recommends \
                          opendkim \
                          opendkim-tools \
-                         opendmarc \
-                         openssl \
-                         p7zip \
+                         opendmarc
+
+RUN apt-get -y install --no-install-recommends \
                          postfix \
                          postfix-ldap \
                          postfix-mysql \
-                         postfix-policyd-spf-python \
-                         pyzor \
-                         razor \
-                         rsyslog \
-                         sasl2-bin \
-                         spamassassin \
-                         postgrey \
-                         unzip
+                         postfix-policyd-spf-python
 
 WORKDIR /tmp
 
-# Start
-#COPY ./start-mailserver.sh /usr/local/bin/
-#RUN chmod +x /usr/local/bin/*
-
-#CMD /usr/local/bin/start-mailserver.sh
-
 #entry point
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-# Set up the command arguments.
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-
-CMD /bin/sh
+CMD /usr/local/bin/entrypoint.sh
