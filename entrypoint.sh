@@ -9,7 +9,6 @@ service opendkim start
 service opendmarc start
 service postfix start
 
-service dovecot start
 /usr/sbin/dovecot -c /etc/dovecot/dovecot.conf
 /usr/sbin/dovecot reload
 
