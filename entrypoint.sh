@@ -1,5 +1,7 @@
 #/bin/bash
 
+touch /etc/mailname
+
 cron
 
 service rsyslog start
