@@ -30,10 +30,6 @@ RUN apt-get -y install --no-install-recommends \
                          amavisd-new
 
 RUN apt-get -y install --no-install-recommends \
-                         clamav \
-                         clamav-daemon
-
-RUN apt-get -y install --no-install-recommends \
                          dovecot-common \
                          dovecot-core \
                          dovecot-imapd \

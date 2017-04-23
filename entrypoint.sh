@@ -16,6 +16,5 @@ service postfix start
 
 freshclam
 service fetchmail start
-service clamav-daemon start
 service postgrey start
 service amavis start
