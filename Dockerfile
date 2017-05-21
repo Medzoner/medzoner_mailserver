@@ -8,6 +8,7 @@ RUN apt-get update -q --fix-missing && \
                          bzip2 \
                          bash \
                          curl \
+                         cron \
                          ed \
                          file \
                          gamin \
