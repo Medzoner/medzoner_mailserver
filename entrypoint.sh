@@ -17,3 +17,5 @@ service postfix start
 service fetchmail start
 service postgrey start
 service amavis start
+
+exit 0
