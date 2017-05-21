@@ -2,8 +2,6 @@
 
 touch /etc/mailname
 
-cron
-
 service rsyslog start
 service saslauthd start
 service fail2ban start
@@ -14,7 +12,6 @@ service postfix start
 /usr/sbin/dovecot -c /etc/dovecot/dovecot.conf
 /usr/sbin/dovecot reload
 
-freshclam
 service fetchmail start
 service postgrey start
 service amavis start
